@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: config-center
+  cloud:
+    config:
+      uri:  http://localhost:7001
+server:
+  port: 2222
