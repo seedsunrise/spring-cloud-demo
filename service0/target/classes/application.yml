@@ -30,6 +30,7 @@ spring:
           minEvictableIdleTimeMillis: 300000
           poolPreparedStatements: true
           maxOpenPreparedStatements: 20
+          filters: stat, wall
 mybatis:
   mapperLocations: classpath:mapper/*.xml
   typeAliasesPackage: cn.demo.service0.entity
