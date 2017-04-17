@@ -12,9 +12,9 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @EnableEurekaClient
 @EnableCircuitBreaker
-public class Application {
+public class FeignApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
+        SpringApplication.run(FeignApplication.class, args);
     }
 }

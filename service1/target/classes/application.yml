@@ -4,12 +4,12 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8080/eureka/  #注册中心地址
+      defaultZone: http://localhost:1111/eureka/  #注册中心地址
   instance:
     hostname: localhost
-    instance-id: http://localhost:8082
+    instance-id: http://localhost:2233
 server:
-  port: 8082 #service0 占用8082
+  port: 2233 #service0 占用8082
 hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds: 40000  # feign 超时控制
 service0:
   ribbon:

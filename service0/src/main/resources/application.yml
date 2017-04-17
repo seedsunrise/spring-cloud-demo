@@ -1,6 +1,5 @@
-spring:
-  application:
-    name: service0
+server:
+  port: 2222
 eureka:
   client:
     serviceUrl:
@@ -8,5 +7,32 @@ eureka:
   instance:
     hostname: localhost
     instance-id: http://localhost:2222
-server:
-  port: 2222
+spring:
+  application:
+    name: service0
+#  rabbitmq:
+#    host: 192.168.10.43
+#    port: 5672
+#    username: test
+#    password: test
+  datasource:
+          name: test
+          url: jdbc:mysql://localhost:3306/test
+          username: root
+          password: 1234
+          type: com.alibaba.druid.pool.DruidDataSource
+          driver-class-name: com.mysql.jdbc.Driver
+          maxActive: 20
+          initialSize: 1
+          maxWait: 60000
+          minIdle: 1
+          timeBetweenEvictionRunsMillis: 60000
+          minEvictableIdleTimeMillis: 300000
+          poolPreparedStatements: true
+          maxOpenPreparedStatements: 20
+          filters: stat, wall
+mybatis:
+  mapperLocations: classpath:mapper/*.xml
+  typeAliasesPackage: cn.demo.service0.entity
+logging:
+  config: classpath:log4j2.xml

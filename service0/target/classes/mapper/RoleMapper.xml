@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.demo.service0.mybatis.mapper.RoleMapper">
+    <resultMap id="roleMap" type="role">
+        <result column="id" property="id"/>
+        <result column="roleName" property="roleName"/>
+        <collection property="resourceList" ofType="action">
+            <result column="url" property="url" />
+        </collection>
+    </resultMap>
+
+    <select id="getAllRole" resultMap="roleMap">
+        SELECT
+            r.*, re.url
+        FROM
+            role r
+        LEFT JOIN role_resource rr ON r.id = rr.roleId
+        LEFT JOIN resource re ON re.id = rr.resourceId
+    </select>
+</mapper>

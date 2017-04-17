@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.demo.service0.mybatis.mapper.UserMapper">
+    <resultMap id="userMap" type="userInfo">
+        <result column="id" property="id"/>
+        <result column="userName" property="userName"/>
+        <result column="password" property="password"/>
+        <collection property="roleList" ofType="role">
+            <result column="roleName" property="roleName" />
+        </collection>
+    </resultMap>
+
+    <select id="selectCount" resultType="int">
+      SELECT count(1) from user_info
+    </select>
+
+    <select id="selectUser" resultMap="userMap">
+      SELECT
+	    i.*, r.roleName
+      FROM
+	    user_info i
+      LEFT JOIN user_role ur ON i.id = ur.userId
+      LEFT JOIN role r ON r.id = ur.roleId
+      where i.userName = #{userName}
+    </select>
+</mapper>
